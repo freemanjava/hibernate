@@ -1,6 +1,10 @@
-insert into client (id, first_name, last_name, email)
-    values(1, 'Vasija', 'Pupkin', 'pupkin@mail.com');
-insert into client (id, first_name, last_name, email)
-    values(2, 'Petija', 'Pijatochkin', 'pijatochkin@mail.com');
-insert into client (id, first_name, last_name, email)
-    values(3, 'Vita', 'Ivanova', 'ivanova@mail.com');
+insert into client (first_name, last_name, email)
+    values
+        ('Vasija', 'Pupkin', 'pupkin@mail.com'),
+        ('Petija', 'Pijatochkin', 'pijatochkin@mail.com'),
+        ('Vita', 'Ivanova', 'ivanova@mail.com');
+insert into client_wallet (currency, amount, id)
+    values
+        ( 'USD', 1000.56, 1 ),
+        ( 'NIS', 12908.56, 2 ),
+        ( 'UAH', 9873.82, 3 );
