@@ -7,9 +7,9 @@ import java.util.List;
 public interface ClientRepository {
 
     Client findClientById(Long Id);
-    Client findClientByName(String name);
+    List<Client> findClientByName(String name);
     List<Client> getAllClient();
-    void saveClient();
+    void saveClient(Client client);
     Client removeClient(Long id);
 
 
