@@ -1,6 +1,7 @@
 package com.freeman.hibernate.services;
 
 import com.freeman.hibernate.entities.Client;
+import com.freeman.hibernate.entities.ClientWallet;
 import com.freeman.hibernate.repositories.ClientRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -18,7 +19,7 @@ public class ClientServiceImpl implements ClientService {
     }
 
     @Override
-    public Client findClientById(Long id) {
+    public ClientWallet findClientById(Long id) {
         return clientRepository.findClientById(id);
     }
 

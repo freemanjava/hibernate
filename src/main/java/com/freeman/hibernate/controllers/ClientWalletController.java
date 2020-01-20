@@ -26,6 +26,11 @@ public class ClientWalletController {
         return clientWalletByClientId;
     }
 
+    @GetMapping("/currency/{currency}")
+    public List<Client> findClientsByCurrency(@PathVariable String currency) {
+        return clientWalletService.findClientsByCurrency(currency);
+    }
+
     /*@GetMapping("/name/{name}")
     public List<Client> findClientByName(@PathVariable String name) {
         return clientWalletService.findClientByName(name);

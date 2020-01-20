@@ -30,7 +30,7 @@ public class ClientWalletServiceImpl implements ClientWalletService {
 
     @Override
     public List<Client> findClientsByCurrency(String currency) {
-        return null;
+        return clientWalletRepository.findClientsByCurrency(currency);
     }
 
     @Override

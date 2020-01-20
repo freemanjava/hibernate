@@ -3,7 +3,9 @@ package com.freeman.hibernate.repositories;
 import com.freeman.hibernate.dao.BaseDAO;
 import com.freeman.hibernate.entities.Client;
 import com.freeman.hibernate.entities.ClientWallet;
+import org.hibernate.Criteria;
 import org.hibernate.Session;
+import org.hibernate.criterion.Restrictions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -13,10 +15,12 @@ import java.util.List;
 public class ClientWalletRepositoryImpl implements ClientWalletRepository {
 
     private final BaseDAO baseDAO;
+    private final ClientRepository clientRepository;
 
     @Autowired
-    public ClientWalletRepositoryImpl(BaseDAO baseDAO) {
+    public ClientWalletRepositoryImpl(BaseDAO baseDAO, ClientRepository clientRepository) {
         this.baseDAO = baseDAO;
+        this.clientRepository = clientRepository;
     }
 
     @Override
@@ -32,7 +36,10 @@ public class ClientWalletRepositoryImpl implements ClientWalletRepository {
 
     @Override
     public List<Client> findClientsByCurrency(String currency) {
-        return null;
+        List<Client> allClient = clientRepository.getAllClient();
+        Criteria criteria = baseDAO.getCurrentSession().createCriteria(ClientWallet.class);
+        criteria.add(Restrictions.eq("currency", currency));
+        return criteria.list();
     }
 
     @Override

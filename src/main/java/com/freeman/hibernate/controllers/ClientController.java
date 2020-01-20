@@ -1,6 +1,7 @@
 package com.freeman.hibernate.controllers;
 
 import com.freeman.hibernate.entities.Client;
+import com.freeman.hibernate.entities.ClientWallet;
 import com.freeman.hibernate.services.ClientService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -19,8 +20,8 @@ public class ClientController {
     }
 
     @GetMapping("/id/{id}")
-    public Client getClientById (@PathVariable Long id){
-        Client client = clientService.findClientById(id);
+    public ClientWallet getClientById (@PathVariable Long id){
+        ClientWallet client = clientService.findClientById(id);
         return client;
     }
 

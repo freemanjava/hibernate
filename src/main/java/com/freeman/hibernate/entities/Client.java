@@ -1,10 +1,15 @@
 package com.freeman.hibernate.entities;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+
 import javax.persistence.*;
 import java.util.Objects;
 
 @Entity
 @Table(name = "client")
+@Builder
+@AllArgsConstructor
 public class Client {
 
     @Id
